@@ -1,0 +1,55 @@
+service: feed-providers
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: eu-central-1
+  timeout: 600
+  environment:
+    NODE_ENV: ${opt:stage, 'dev'}
+    DB_ENV: ${opt:stage, 'dev'}
+  layers:
+    - arn:aws:lambda:eu-central-1:106700026130:layer:chromium-x64:1
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: "*"
+
+functions:
+  changeCampaignsStatus:
+    handler: src/functions/changeCampaignsStatus/handler.handler
+    environment:
+      NODE_ENV: ${opt:stage, 'dev'}
+      DB_ENV: ${opt:stage, 'dev'}
+    vpc:
+      securityGroupIds:
+        - sg-0794d05761edec5ce
+      subnetIds:
+        - subnet-054dde24aa1135152
+        - subnet-0a5de48bbdb956c88
+    events:
+      - eventBridge:
+          pattern:
+            source:
+              - "aws.scheduler"
+
+  ruleExecutor:
+    handler: src/functions/ruleExecutor/handler.handler
+    environment:
+      NODE_ENV: ${opt:stage, 'dev'}
+      DB_ENV: ${opt:stage, 'dev'}
+    vpc:
+      securityGroupIds:
+        - sg-0794d05761edec5ce
+      subnetIds:
+        - subnet-054dde24aa1135152
+        - subnet-0a5de48bbdb956c88
+    events:
+      - eventBridge:
+          pattern:
+            source:
+              - "aws.scheduler"

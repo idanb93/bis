@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+      /* Keep targeting the latest ES runtime your Lambdas will run on */
+      "target": "ES2024",
+      "lib": ["ES2024"],
+  
+      /* CommonJS for Serverless + Node.js */
+      "module": "NodeNext",
+      "moduleResolution": "Nodenext",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+  
+      /* Project layout */
+      "rootDir": "src",
+      "outDir": ".build",
+  
+      /* Strictness */
+      "strict": true,
+      "noImplicitAny": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "noUncheckedIndexedAccess": true,
+      "strictBindCallApply": true,
+      "strictFunctionTypes": true,
+      "strictNullChecks": true,
+      "strictPropertyInitialization": true,
+      "noImplicitOverride": true,
+      "noPropertyAccessFromIndexSignature": true,
+  
+      /* Incremental builds */
+      "incremental": true,
+      "tsBuildInfoFile": ".build/.tsbuildinfo",
+  
+      /* Emit options */
+      "sourceMap": true,
+      "removeComments": true,
+      "noEmitOnError": true,
+  
+      /* JSON & Node types */
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "types": ["node"],
+  
+      "importHelpers": true
+  
+    },
+    "include": ["src/**/*.ts", "src/functions/addInstagram"],
+    "exclude": ["node_modules", ".serverless", ".build"]
+  }
