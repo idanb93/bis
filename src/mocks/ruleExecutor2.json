@@ -1,0 +1,33 @@
+{
+  "enabled": true,
+  "creator": "Idan Bardugo",
+  "name": "[PAUSE] GREECE Health 8PM",
+  "conditions": [],
+  "action": { "type": "STATUS", "action": "PAUSE" },
+  "targeting": {
+    "trafficChannelId": "1",
+    "feedProviderId": "1",
+    "businessId": ["314161852504627", "937978431542746"],
+    "businessName": ["AIBM", "Promoter ER"],
+    "adAccountId": ["901613428818368", "641162861721074", "1135898378327369", "1150322607128986"],
+    "adAccountName": ["AIBM-PomoterAI-EST-USD-2", "Digi-usd-est1", "Digi-usd-est2", "Digi-usd-est-3"],
+    "topic": [],
+    "countries": ["GB"],
+    "facebookUILanguage": [],
+    "campaignsIds": [],
+    "campaignsNames": "",
+    "devicePlatforms": [],
+    "updatedSince": "2025-05-30",
+    "createdTime": ""
+  },
+  "timezone": "IST",
+  "schedule": {
+    "Sunday": ["06:00", "07:00", "08:00", "20:00"],
+    "Monday": [],
+    "Tuesday": [],
+    "Wednesday": [],
+    "Thursday": [],
+    "Friday": [],
+    "Saturday": []
+  }
+}
